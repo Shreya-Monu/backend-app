@@ -10,6 +10,7 @@ import storeRouter from "./routes/storeRoute.js";
 import homeRouter from "./routes/homeRoute.js";
 import authRouter from "./routes/authRoute.js";
 import userRouter from "./routes/userRoute.js";
+import orderRoute from "./routes/orderRoute.js";
 
 const app = express();
 app.use(cors());
@@ -21,6 +22,7 @@ app.set("layout", "layout");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use("/api", orderRoute);
 
 app.use(
   session({
